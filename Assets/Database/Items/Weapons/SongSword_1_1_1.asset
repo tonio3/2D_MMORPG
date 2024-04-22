@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb1ece9ddf53b84fae545492ed02716, type: 3}
+  m_Name: SongSword_1_1_1
+  m_EditorClassIdentifier: 
+  Spr: {fileID: 3774677635181883663, guid: 29d1ca3fb3238df48aeab511effc1058, type: 3}
+  Price: 21
+  Type: 4
+  Hp: 0
+  Intelligence: 0
+  AttackDamage: 0
