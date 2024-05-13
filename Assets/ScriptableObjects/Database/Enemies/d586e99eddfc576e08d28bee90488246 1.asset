@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f33494d50fc71d4983313c4fbb40d2c, type: 3}
+  m_Name: d586e99eddfc576e08d28bee90488246 1
+  m_EditorClassIdentifier: 
+  Spr: {fileID: 21300000, guid: 22e6bd99444abf64289a35a6cdb5a3c3, type: 3}
+  <Weapon>k__BackingField: {fileID: 21300000, guid: b95311202cf10c643b036a0571104acf, type: 3}
+  <Level>k__BackingField: 2
+  <BaseHealth>k__BackingField: 150
+  <BaseDamage>k__BackingField: 35
+  <BaseGoldReward>k__BackingField: 10
+  <BaseXpRevard>k__BackingField: 35
+  _levelBasedStats: {fileID: 11400000, guid: e51255d4e3d8dcd4a9905daec1e375e7, type: 2}

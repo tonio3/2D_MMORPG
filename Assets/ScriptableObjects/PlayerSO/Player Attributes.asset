@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fabe2d2a40a9a34383c6af2fd50841d, type: 3}
+  m_Name: Player Attributes
+  m_EditorClassIdentifier: 
+  _strength: 0
+  _characterScalingSO: {fileID: 11400000, guid: db6ac002215b5dd4ea79ab0ae447901a, type: 2}
+  _xp: 0
+  _level: 0
+  _endurance: 0
+  _health: 0
+  _damage: 0
