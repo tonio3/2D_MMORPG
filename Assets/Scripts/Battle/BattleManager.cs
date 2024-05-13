@@ -26,7 +26,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] EnemyDatabaseSO _enemyDatabaseSO;
 
     
-    [SerializeField] CharacterDataSO _characterDataSO;
+    [SerializeField] OtherCharacterDataSO _characterDataSO;
    
     private EnemySO currentEnemy;
 

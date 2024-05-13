@@ -9,7 +9,7 @@ using UnityEngine;
 public class LeaderboardOtherPlayerButton : MonoBehaviour
 {
     public string playerName { get; set; }
-    [SerializeField] private CharacterDataSO _otherCharacterDataSO;
+    [SerializeField] private OtherCharacterDataSO _otherCharacterDataSO;
 
     public string playerId{ get; set; }
 

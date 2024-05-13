@@ -16,7 +16,7 @@ public class OtherPlayerStatsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _damage;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private Image _playerImage;
-    [SerializeField] private CharacterDataSO _characterDataSO;
+    [SerializeField] private OtherCharacterDataSO _characterDataSO;
     [SerializeField] private OtherPlayerInvenotrySlot[] _playerInvenotrySlots;
     [SerializeField] private  ItemDatabaseSO _itemDatabaseSO;
     [SerializeField] private TextMeshProUGUI _characterName;

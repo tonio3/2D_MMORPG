@@ -18,13 +18,7 @@ public class CharacterSpritesDatabaseSO : ScriptableObject
     }
 
     public int GetRandomSpriteId()
-    {
-        if (characterSprites.Length == 0)
-        {
-            Debug.LogWarning("Databáze spriteů je prázdná!");
-            return (-1);
-        }
-
+    {       
         int randomIndex = Random.Range(0, characterSprites.Length);
         return randomIndex;
     }
@@ -36,12 +30,6 @@ public class CharacterSpritesDatabaseSO : ScriptableObject
 
     public Sprite GetSprite(int index)
     {
-        if (characterSprites.Length == 0)
-        {
-            Debug.LogWarning("Database is empty!");
-            return null;
-        }
- 
         int adjustedIndex = (index % characterSprites.Length + characterSprites.Length) % characterSprites.Length;  //loop
         return characterSprites[adjustedIndex];
     }

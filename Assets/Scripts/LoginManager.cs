@@ -168,9 +168,7 @@ public class LoginManager : MonoBehaviour
 
     public async Task LoadPlayerDataFromCloudAsync()
     {
-        // Start the timer
-        var startTime = DateTime.Now;
-
+ 
         //get identity
         var loadIdentityTask = _characterIdentitySO.LoadIdentityFromCloud();
         var loadCurrencyTask = _playerCurrencySO.LoadCurrencyFromCloud();
@@ -179,9 +177,7 @@ public class LoginManager : MonoBehaviour
 
         // Wait for all tasks to complete
         await Task.WhenAll(loadIdentityTask, loadCurrencyTask, loadAttributesTask, loadInventoryTask);
-
-        var elapsedTime = DateTime.Now - startTime;
-        Debug.Log(elapsedTime.TotalSeconds);
+ 
     }
 }
 
