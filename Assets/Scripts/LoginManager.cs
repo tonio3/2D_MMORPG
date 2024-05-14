@@ -6,6 +6,7 @@ using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Economy;
+using Unity.Services.Leaderboards;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,9 +22,10 @@ public class LoginManager : MonoBehaviour
     [SerializeField] PlayerInventorySO _playerInventorySO;
     [SerializeField] CharacterIdentitySO _characterIdentitySO;
     [SerializeField] PlayerCurrencySO _playerCurrencySO;
-
-    readonly string userNamePepper = "dwaodoOO3";
-    readonly string passwordPepper = "Abc123!#abaDDc";
+ 
+    private readonly string userNamePepper = "dwaodoOO3";
+    private readonly string passwordPepper = "Abc123!#abaDDc";
+    private readonly string leaderboardId = "LEADERBOARD";
 
     async void Awake()
     {
@@ -120,19 +122,26 @@ public class LoginManager : MonoBehaviour
 
         _characterIdentitySO.CharacterName = AuthenticationService.Instance.PlayerName;
 
-        //attributes
-        _characterAttributesSO.Xp = initialPlayerDataSO.InitialXP;
-        _characterAttributesSO.Strength = initialPlayerDataSO.InitialStrength;
-        _characterAttributesSO.Endurance = initialPlayerDataSO.InitialEndurance;
-   
+
         //currency
         _playerCurrencySO.Gold = initialPlayerDataSO.InitialGold;
         _playerCurrencySO.SkillPoints = initialPlayerDataSO.InitialSkillPoints;
 
 
-        //Inventory setup
+        //attributes
+        _characterAttributesSO.Xp = initialPlayerDataSO.InitialXP;
+        _characterAttributesSO.Strength = initialPlayerDataSO.InitialStrength;
+        _characterAttributesSO.Endurance = initialPlayerDataSO.InitialEndurance;
+ 
+
         List<Task> tasks = new List<Task>();
 
+        //leaderboard
+        Task task1 = LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId,1);
+        tasks.Add(task1);
+
+        //Inventory setup
+    
         for (int i = 0; i < 6; i++)
         {
             AddInventoryItemOptions options = new AddInventoryItemOptions

@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryItemSlot : ItemSlot
 {
 
+    [SerializeField] private PlayerCurrencySO _currency;
 
     [SerializeField] protected int _slotId;
     public int SlotId => _slotId;
@@ -96,7 +97,7 @@ public class InventoryItemSlot : ItemSlot
             //From Inventory slot to shop
             if (newSlot.SlotType == ShopItemType)
             {
-                Player.Instance.Sell(Item.Price);
+                _currency.Sell();
                 RemoveItem(Item);
                 ShopOffer.Instance.Initialize();
                 return;

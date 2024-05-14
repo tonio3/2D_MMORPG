@@ -6,9 +6,11 @@ using UnityEngine;
 [Serializable]
 public class PlayerInventorySO : ScriptableObject
 {
+
     [SerializeField] private InventoryItem[] _itemSlots = new InventoryItem[6];
 
     [SerializeField] private GearItem[] _gearSlots = new GearItem[8];
+
     [SerializeField] private ItemDatabaseSO _itemDatabaseSO;
     // -1 - Inventory 
     //  0 - Hat              // 4 - Necklace
@@ -39,6 +41,18 @@ public class PlayerInventorySO : ScriptableObject
     private void OnDisable()
     {
         UnsubscribeFromItemSlotEvents();
+
+        foreach (var slot in _itemSlots)
+        {
+            slot.Item = null;
+        }
+
+        foreach (var slot in _gearSlots)
+        {
+            slot.Item = null;
+        }
+
+
     }
 
     private void SubscribeToItemSlotEvents()
@@ -107,7 +121,12 @@ public class PlayerInventorySO : ScriptableObject
             var instancedata = item.InstanceData;
 
             var itemdata = JsonUtility.FromJson<ItemDTO>(instancedata.GetAsString());
-            if (itemdata == null) continue;
+            if (itemdata == null) 
+            {
+
+                continue;
+            } 
+
             if (item.InventoryItemId.Contains("GEAR"))
             {
                 AddItemToGearSlot(_itemDatabaseSO.GetItem(itemdata.ItemType, itemdata.ItemName));
@@ -121,5 +140,6 @@ public class PlayerInventorySO : ScriptableObject
                 AddItemToInventorySlot(v);
             }
         }
+ 
     }
 }

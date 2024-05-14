@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Services.Economy;
 using UnityEngine;
 
@@ -41,10 +42,16 @@ public class CloudSaveCurrencySO : ScriptableObject
         Debug.Log("GoldValueSaved");
     }
 
-    private void UpdateSkillPointsValue(int skillPoints)
+    private async void UpdateSkillPointsValue(int skillPoints)
     {
-        EconomyService.Instance.PlayerBalances.SetBalanceAsync(skillPointCurrencyID, skillPoints);
+        await TaskUpdate(skillPoints);
+    }
+
+    private async Task TaskUpdate(int skillPoints) 
+    {
+        await EconomyService.Instance.PlayerBalances.SetBalanceAsync(skillPointCurrencyID, skillPoints);
         Debug.Log("SkillPointsValueChanged");
     }
+
  
 }

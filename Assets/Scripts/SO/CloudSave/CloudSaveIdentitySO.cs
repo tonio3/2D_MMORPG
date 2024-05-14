@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.CloudSave;
 using UnityEngine;
@@ -32,17 +33,21 @@ public class CloudSaveIdentitySO : ScriptableObject
         _playerIdentity.OnCharacterSpriteIdChanged -= UpdateCharacterSpriteId;
     }
 
-    private async void UpdateName(string newName)
-    {
-        // await AuthenticationService.Instance.UpdatePlayerNameAsync(newName);
-        Debug.Log("NameUpdated_Offline");
+    private void UpdateName(string newName)
+    {        
+        Debug.Log("Name updated");
     }
 
-    private void UpdateCharacterSpriteId(int sprId)
+    private async void UpdateCharacterSpriteId(int sprId)
+    {
+       await TaskUpdateSpriteID(sprId);
+    }
+
+    private async Task TaskUpdateSpriteID(int sprId)
     {
         var saveData = new Dictionary<string, object>();
         saveData["characterSpriteId"] = sprId;
-        CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
+        await CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
         Debug.Log("CharacterSpriteSaved");
     }
  

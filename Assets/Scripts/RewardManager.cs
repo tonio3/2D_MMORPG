@@ -19,6 +19,7 @@ public class RewardManager : MonoBehaviour
 
     private void HandleLevelChanged(int newLevel)
     {
+        if (newLevel == 1) return;
 
         _playerCurrencySO.SkillPoints += _rewardsPerLevelSO.SkillPointsPerLevel;
     }

@@ -35,11 +35,11 @@ public class OtherPlayerStatsUI : MonoBehaviour
     private async void UpdateUI()
     {
   
-        //name
+        //identity
         _characterName.text = _characterDataSO.CharacterIdentity.CharacterName;
+       
 
-
-        // attributes
+        // attributes + sprite
         var args = new Dictionary<string, object>() { { "_playerID", (string)_characterDataSO.CharacterIdentity.CharacterId } };
         var result = await CloudCodeService.Instance.CallEndpointAsync<OtherPlayerDataDTO>("GetPlayerStats", args);
 

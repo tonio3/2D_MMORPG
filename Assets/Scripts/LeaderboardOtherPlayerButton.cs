@@ -21,10 +21,10 @@ public class LeaderboardOtherPlayerButton : MonoBehaviour
  
 
     private void OpenOtherPlayerCard(string otherPlayerNameId)
-    {
-       
+    {      
         _otherCharacterDataSO.CharacterIdentity.CharacterName = playerName;
         _otherCharacterDataSO.CharacterIdentity.CharacterId = otherPlayerNameId;
+
      
     }
 

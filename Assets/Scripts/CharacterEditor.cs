@@ -38,8 +38,10 @@ public class CharacterEditor : MonoBehaviour
     }
 
     public void Save()
-    {        
-        _characterSprite = _characterSpritesDatabaseSO.GetSprite(i);
+    {
+        if (_characterIdentity.CharacterSpriteId == i) return;
+
+        _characterSprite = _characterSpritesDatabaseSO.GetSprite(i);     
         _characterIdentity.CharacterSpriteId = i;
     }
 

@@ -8,10 +8,18 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CharacterAttributesSO : ScriptableObject
 {
-    // Attributes
-    [SerializeField][ReadOnly] private int _strength;
-    public event Action<int> OnStrengthChanged;
+
     [SerializeField] private CharacterScalingSO _characterScalingSO;
+
+    private void OnDisable()
+    {
+        _xp = 0;
+        _level = 0;
+        _strength = 0;
+        _endurance = 0;
+        _health = 0;
+        _damage = 0;
+    }
 
 
     [SerializeField][ReadOnly] private int _xp;
@@ -39,8 +47,10 @@ public class CharacterAttributesSO : ScriptableObject
             OnLevelChanged?.Invoke(_level);
         }
     }
-     
 
+    // Attributes
+    [SerializeField][ReadOnly] private int _strength;
+    public event Action<int> OnStrengthChanged;
     public int Strength
     {
         get { return _strength; }
@@ -124,13 +134,13 @@ public class CharacterAttributesSO : ScriptableObject
         var serverData = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "xp", "strength", "endurance", "characterSpriteId" });
 
         if (serverData.TryGetValue("xp", out var XPValue))
-           _xp = XPValue.Value.GetAs<int>();
+           Xp = XPValue.Value.GetAs<int>();
 
         if (serverData.TryGetValue("strength", out var strengthValue))
-           _strength = strengthValue.Value.GetAs<int>();
+           Strength = strengthValue.Value.GetAs<int>();
 
         if (serverData.TryGetValue("endurance", out var enduranceValue))
-            _endurance = enduranceValue.Value.GetAs<int>();
+            Endurance = enduranceValue.Value.GetAs<int>();
    
     }
 

@@ -31,11 +31,13 @@ public class EnemySO : ScriptableObjectWithIcon
 
     public int CalcGoldRewardBasedOnLevel()
     {
+        if (_levelBasedStats == null) return 0;
         return BaseGoldReward + (_levelBasedStats.GoldRevardPerLevel * Level);
     }
 
     public int CalcXpRewardBasedOnLevel()
     {
+        if (_levelBasedStats == null) return 0;
         return BaseXpRevard + (_levelBasedStats.XpRevardPerLevel * Level);
     }
 

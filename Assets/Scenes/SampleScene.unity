@@ -1855,6 +1855,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &90867563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3074,6 +3075,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: a7fbb5f07eb11304da5d190db14c1428, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &163155165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,6 +4277,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 302235553}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 302235555}
         m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
         m_MethodName: SetupPVP
@@ -4827,6 +4841,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 2
 --- !u!61 &276609864
 BoxCollider2D:
@@ -5386,7 +5401,7 @@ MonoBehaviour:
   takeDamageSourceP: {fileID: 903109214}
   attackSourceE: {fileID: 858592065}
   takeDamageSourceE: {fileID: 858592066}
-  _cityDatabaseSO: {fileID: 0}
+  _cityDatabaseSO: {fileID: 11400000, guid: 44dcf54d610051f4f9b695e6c274e849, type: 2}
   _enemyDatabaseSO: {fileID: 11400000, guid: 1dca40cf9ce94b44595fdecddeb627bf, type: 2}
   _characterDataSO: {fileID: 11400000, guid: 72156afb6117c114697af44355b87b41, type: 2}
   OnVictory:
@@ -5851,6 +5866,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1380237904}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678452194}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -10657,6 +10684,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: a2b8b43ce3009b14cb8ccd82ca52bcff, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &725015548
 GameObject:
   m_ObjectHideFlags: 0
@@ -10843,6 +10871,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4168fab7b7b899449aae0bace71ba034, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &751737281
 GameObject:
   m_ObjectHideFlags: 0
@@ -16005,6 +16034,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 5
 --- !u!61 &1070384174
 BoxCollider2D:
@@ -16515,6 +16545,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &1138902111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16651,8 +16682,8 @@ MonoBehaviour:
   - {fileID: 161810288}
   - {fileID: 747016247}
   - {fileID: 1159413253}
-  - {fileID: 1782598041}
   - {fileID: 1856446622}
+  - {fileID: 1782598041}
   - {fileID: 1533453143}
 --- !u!1 &1158534052
 GameObject:
@@ -16840,6 +16871,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: fe2beb25a4f7d534ba0910289070d78a, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &1163042864
 GameObject:
   m_ObjectHideFlags: 0
@@ -18361,6 +18393,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &1249510493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18607,6 +18640,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &1266479160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20257,6 +20291,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &1396913028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20502,6 +20537,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 4
 --- !u!61 &1419127848
 BoxCollider2D:
@@ -21793,6 +21829,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _playerCurrencySO: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!61 &1491035508
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22367,6 +22404,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 2b9347bade693884096278de1a1d0a6f, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!224 &1533453144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24485,6 +24523,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 3
 --- !u!61 &1720718764
 BoxCollider2D:
@@ -25653,6 +25692,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 491276744dc45ec41966f4b3897151e5, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &1789704337
 GameObject:
   m_ObjectHideFlags: 0
@@ -25861,6 +25901,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 1
 --- !u!61 &1798160587
 BoxCollider2D:
@@ -26696,6 +26737,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 21f1d7a16cba0fa41974978d1769c5f9, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
 --- !u!1 &1860366579
 GameObject:
   m_ObjectHideFlags: 0
@@ -26730,8 +26772,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -562, y: -300.6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -461.6999, y: -300.6}
+  m_SizeDelta: {x: 400.6, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860366581
 MonoBehaviour:
@@ -29146,6 +29188,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
   ShopItemType: {fileID: 11400000, guid: 49d2d2dd1e4d4ae4fb8e7b989cb4ec39, type: 2}
   InventoryItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  _currency: {fileID: 11400000, guid: aad0c07cc1610cb47a4bca9e56378d02, type: 2}
   _slotId: 0
 --- !u!61 &2103759875
 BoxCollider2D:

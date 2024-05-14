@@ -15,8 +15,8 @@ MonoBehaviour:
   Spr: {fileID: 21300000, guid: a6e6d671c7bf57f4b9bd62a6a78c1dcd, type: 3}
   <Weapon>k__BackingField: {fileID: 21300000, guid: b95311202cf10c643b036a0571104acf, type: 3}
   <Level>k__BackingField: 10
-  <BaseHealth>k__BackingField: 0
-  <BaseDamage>k__BackingField: 0
-  <BaseGoldReward>k__BackingField: 0
-  <BaseXpRevard>k__BackingField: 0
-  _levelBasedStats: {fileID: 0}
+  <BaseHealth>k__BackingField: 33
+  <BaseDamage>k__BackingField: 22
+  <BaseGoldReward>k__BackingField: 2
+  <BaseXpRevard>k__BackingField: 40
+  _levelBasedStats: {fileID: 11400000, guid: e51255d4e3d8dcd4a9905daec1e375e7, type: 2}

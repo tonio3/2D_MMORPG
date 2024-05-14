@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GearItemSlot : ItemSlot
 {
+
+    [SerializeField] private PlayerCurrencySO _currency;
+
     public static Action<ItemSO> OnItemSetToGear
     {
         get; set;
@@ -47,7 +50,7 @@ public class GearItemSlot : ItemSlot
             //From Gear slot to shop
             if ( newSlot.SlotType == ShopItemType)
             {
-                Player.Instance.Sell(Item.Price);
+                _currency.Sell();
                 RemoveItem(Item);
                 ShopOffer.Instance.Initialize();
                 return;

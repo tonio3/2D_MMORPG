@@ -13,13 +13,11 @@ using Unity.Services.Leaderboards;
 
 public class Player : MonoBehaviour
 {
- 
    
     public bool bookUnlocked;
 
     [SerializeField] RuneType RuneType;
     [SerializeField] PlayerCurrencySO _currency;
- 
 
     private static Player _instance;
     public static Player Instance
@@ -50,19 +48,5 @@ public class Player : MonoBehaviour
         return weapon.Spr;*/
         return null;
     }
-
  
-    public bool CanBuy(int i)
-    {
-        if (_currency.Gold >= i) { _currency.Gold -= i;   return true; }
-        return false;
-    }
-
-    public void Sell(int i)
-    {
-        _currency.Gold += i;
-       
-    }
-
-   
 }

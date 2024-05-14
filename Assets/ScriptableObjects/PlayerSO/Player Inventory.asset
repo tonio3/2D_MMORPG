@@ -25,13 +25,13 @@ MonoBehaviour:
   - Item: {fileID: 0}
     GearSlotType: {fileID: 11400000, guid: a7fbb5f07eb11304da5d190db14c1428, type: 2}
   - Item: {fileID: 0}
-    GearSlotType: {fileID: 11400000, guid: fe2beb25a4f7d534ba0910289070d78a, type: 2}
-  - Item: {fileID: 0}
-    GearSlotType: {fileID: 11400000, guid: 500a5e13f9589034ebd52a74a74d810e, type: 2}
-  - Item: {fileID: 0}
     GearSlotType: {fileID: 11400000, guid: 4168fab7b7b899449aae0bace71ba034, type: 2}
   - Item: {fileID: 0}
+    GearSlotType: {fileID: 11400000, guid: fe2beb25a4f7d534ba0910289070d78a, type: 2}
+  - Item: {fileID: 0}
     GearSlotType: {fileID: 11400000, guid: 21f1d7a16cba0fa41974978d1769c5f9, type: 2}
+  - Item: {fileID: 0}
+    GearSlotType: {fileID: 11400000, guid: 491276744dc45ec41966f4b3897151e5, type: 2}
   - Item: {fileID: 0}
     GearSlotType: {fileID: 11400000, guid: 2b9347bade693884096278de1a1d0a6f, type: 2}
   _itemDatabaseSO: {fileID: 11400000, guid: d7b9a1174677762469641cccf6124692, type: 2}

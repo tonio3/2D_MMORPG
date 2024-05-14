@@ -10,6 +10,12 @@ using UnityEngine;
 public class PlayerCurrencySO : ScriptableObject
 {
 
+    private void OnDisable()
+    {
+        _gold = 0;
+        _skillPoints = 0;
+    }
+
     [SerializeField][ReadOnly] private int _gold;
     public event Action<int> OnGoldChanged;
     public int Gold
@@ -21,6 +27,7 @@ public class PlayerCurrencySO : ScriptableObject
             OnGoldChanged?.Invoke(_gold);
         }
     }
+
 
     [SerializeField][ReadOnly] private int _skillPoints;
     public event Action<int> OnSkillPointsChanged;
@@ -40,10 +47,29 @@ public class PlayerCurrencySO : ScriptableObject
         List<PlayerBalance> firstFiveBalances = getBalancesResult.Balances;
 
         var goldBalance = firstFiveBalances.Find(balance => balance.CurrencyId == "GOLD");
-        _gold = (int)goldBalance.Balance;
+        Gold = (int)goldBalance.Balance;
 
         var skillPointsBalance = firstFiveBalances.Find(balance => balance.CurrencyId == "SKILLPOINTS");
-        _skillPoints = (int)skillPointsBalance.Balance;
+        SkillPoints = (int)skillPointsBalance.Balance;
     }
- 
+
+    public bool BuyForGold(int price)
+    {
+        var b = _gold >= price;
+        if (b)
+        {
+            Gold -= price;
+        } 
+        return b;
+    }
+
+    public bool CanBuyForSkillPoints(int ammount)
+    {
+        return _skillPoints >= ammount;
+    }
+
+    public void Sell()
+    {
+       
+    }
 }

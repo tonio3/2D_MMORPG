@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShopItemSlot : ItemSlot
 {
+     [SerializeField] private PlayerCurrencySO _playerCurrencySO;
 
     public override void SetItem(ItemSO item)
     {
@@ -43,7 +44,7 @@ public class ShopItemSlot : ItemSlot
             //From shop to Empty inventory slot
             if (newSlot.SlotType == InventoryItemType)
             {
-                if (!Player.Instance.CanBuy(Item.Price)) return;
+                if (!_playerCurrencySO.BuyForGold(Item.Price)) return;
 
                 newSlot.SetItem(Item);
                 RemoveItem(Item);
@@ -54,7 +55,7 @@ public class ShopItemSlot : ItemSlot
             //From shop to Empty Gear slot
             if (newSlot.SlotType == Item.ItemType)
             {
-                if (!Player.Instance.CanBuy(Item.Price)) return;
+                if (!_playerCurrencySO.BuyForGold(Item.Price)) return;
 
                 newSlot.SetItem(Item);
                 RemoveItem(Item);

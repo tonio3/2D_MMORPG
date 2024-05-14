@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db351eb621ccd064592e59df907ba3fd, type: 3}
   m_Name: OtherPlayerCharacterData
   m_EditorClassIdentifier: 
-  _characterAttributes: {fileID: 0}
-  _characterIdentity: {fileID: 0}
+  _characterAttributes: {fileID: 11400000, guid: 8aecde8b5c164b14cb4248f1d488121c, type: 2}
+  _characterIdentity: {fileID: 11400000, guid: c2245833fe669974f836ebf6d51350ea, type: 2}

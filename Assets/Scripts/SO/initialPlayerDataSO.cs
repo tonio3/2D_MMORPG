@@ -13,19 +13,18 @@ public class InitialPlayerData : ScriptableObject
     public int InitialStrength => _initialStrength;
 
     //HEALTH
-    public int InitialEndurance => _initialEndurance;
 
     [SerializeField] private int _initialEndurance;
+    public int InitialEndurance => _initialEndurance;
+
 
     //Gold
+    [SerializeField] private int _initialGold;
     public int InitialGold => _initialGold;
 
-    [SerializeField] private int _initialGold;
 
     //SkillPoints
-    public int InitialSkillPoints => _initialSkillPoints;
-
     [SerializeField] private int _initialSkillPoints;
-
-
+    public int InitialSkillPoints => _initialSkillPoints;
+ 
 }

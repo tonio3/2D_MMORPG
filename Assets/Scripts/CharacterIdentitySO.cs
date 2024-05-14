@@ -11,9 +11,19 @@ public class CharacterIdentitySO : ScriptableObject
 {
 
     [SerializeField] private CharacterSpritesDatabaseSO _characterSpriteDatabaseSO;
-    [Space]
 
+
+    private void OnDisable()
+    {
+        _characterSprite = null;
+        _characterId = "";
+        _characterName = "";
+        _characterSpriteId = -1;
+    }
+
+    [Space]
     //character Skin
+    [NonSerialized]
     [SerializeField][ReadOnly] private Sprite _characterSprite;
     public event Action<Sprite> OnCharacterSpriteChanged;
     public Sprite CharacterSprite
@@ -26,7 +36,7 @@ public class CharacterIdentitySO : ScriptableObject
         }
     }
 
-
+    [NonSerialized]
     [SerializeField][ReadOnly] private int _characterSpriteId;
     public event Action<int> OnCharacterSpriteIdChanged;
     public int CharacterSpriteId
@@ -34,14 +44,13 @@ public class CharacterIdentitySO : ScriptableObject
         get { return _characterSpriteId; }
         set
         {
-            if (_characterSpriteId == value) return;
-
             _characterSpriteId = value;
             SetCharacterSprite(value);
             OnCharacterSpriteIdChanged?.Invoke(_characterSpriteId);
         }
     }
 
+    [NonSerialized]
     [SerializeField][ReadOnly] private string _characterId;
     public event Action<string> OnCharacterIdChanged;
     public string CharacterId
@@ -54,7 +63,7 @@ public class CharacterIdentitySO : ScriptableObject
         }
     }
 
-
+    [NonSerialized]
     [SerializeField][ReadOnly] private string _characterName;
     public event Action<string> OnCharacterNameChanged;
     public string CharacterName
@@ -77,14 +86,14 @@ public class CharacterIdentitySO : ScriptableObject
     {
         //name
         var myname = await AuthenticationService.Instance.GetPlayerNameAsync();
-        _characterName = myname;
+        CharacterName = myname;
 
 
         //sprite
         var serverData = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> {"characterSpriteId" });
 
         if (serverData.TryGetValue("characterSpriteId", out var sprId))
-            _characterSpriteId = sprId.Value.GetAs<int>();
+           CharacterSpriteId = sprId.Value.GetAs<int>();
 
     }
 

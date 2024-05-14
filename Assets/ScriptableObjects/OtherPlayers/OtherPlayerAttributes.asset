@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e40845b5b9a57f468f45f56cd2f7e40, type: 3}
-  m_Name: CharacterSpriteDatabase
+  m_Script: {fileID: 11500000, guid: 4fabe2d2a40a9a34383c6af2fd50841d, type: 3}
+  m_Name: OtherPlayerAttributes
   m_EditorClassIdentifier: 
-  characterSprites:
-  - {fileID: 21300000, guid: fcd8967257db7cb42b1f8e068c8cdc12, type: 3}
-  - {fileID: 21300000, guid: 5ca36d5944849ee418dd8d3ed98804d4, type: 3}
+  _strength: 0
+  _characterScalingSO: {fileID: 11400000, guid: db6ac002215b5dd4ea79ab0ae447901a, type: 2}
+  _xp: 0
+  _level: 0
+  _endurance: 0
+  _health: 0
+  _damage: 0

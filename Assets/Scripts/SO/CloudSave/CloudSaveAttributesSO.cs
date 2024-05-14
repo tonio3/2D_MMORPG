@@ -7,9 +7,20 @@ using Unity.Services.Leaderboards;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CloudSaveAttributesSO: ScriptableObject
+public class CloudSaveAttributesSO : ScriptableObject
 {
     [SerializeField] private CharacterAttributesSO _characterAttributesSO;
+
+
+    private int _xp,_strength,_endurance;
+
+    public void InitAttributes(int xp, int strength, int endurance)
+    {
+        _xp = xp;
+        _strength = strength;
+        _endurance = endurance;
+    }
+
 
     private void OnEnable()
     {
@@ -25,7 +36,7 @@ public class CloudSaveAttributesSO: ScriptableObject
     {
         _characterAttributesSO.OnXPChanged += UpdateXpValue;
         _characterAttributesSO.OnStrengthChanged += UpdateStrengthValue;
-        _characterAttributesSO.OnEnduranceChanged += UpdateHpValue;
+        _characterAttributesSO.OnEnduranceChanged += UpdateEnduranceValue;
     }
 
 
@@ -33,12 +44,15 @@ public class CloudSaveAttributesSO: ScriptableObject
     {
         _characterAttributesSO.OnXPChanged -= UpdateXpValue;
         _characterAttributesSO.OnStrengthChanged -= UpdateStrengthValue;
-        _characterAttributesSO.OnEnduranceChanged -= UpdateHpValue;
+        _characterAttributesSO.OnEnduranceChanged -= UpdateEnduranceValue;
     }
 
 
     private async void UpdateXpValue(int xp)
     {
+
+        if (xp == _xp) return;
+
         var saveData = new Dictionary<string, object>();
         saveData["xp"] = xp;
         await CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
@@ -46,20 +60,28 @@ public class CloudSaveAttributesSO: ScriptableObject
         Debug.Log("XpValueSaved");
     }
 
-    private void UpdateStrengthValue(int strength)
+    private async void UpdateStrengthValue(int strength)
     {
+        if (strength == _strength) return;
+
         var saveData = new Dictionary<string, object>();
         saveData["strength"] = strength;
-        CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
+        await CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
         Debug.Log("StrengthValueSaved");
     }
 
-    private void UpdateHpValue(int hp)
+    private async void UpdateEnduranceValue(int endur)
     {
+        await TaskUpdate(endur);
+    }
+
+    private async Task TaskUpdate(int endur)
+    {
+        if (endur == _endurance) return;
         var saveData = new Dictionary<string, object>();
-        saveData["health"] = hp;
-        CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
-        Debug.Log("HealthValueSaved");
+        saveData["endurance"] = endur;
+        await CloudSaveService.Instance.Data.Player.SaveAsync(saveData);
+        Debug.Log("EnduranceValueSaved");
     }
  
 }

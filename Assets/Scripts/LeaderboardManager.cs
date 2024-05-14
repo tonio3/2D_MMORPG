@@ -17,6 +17,12 @@ public class LeaderboardManager : MonoBehaviour
     private List<GameObject> gameObjects = new List<GameObject>();
 
 
+    private void OnEnable()
+    {
+
+        GetScores();
+    }
+
     private void OnDisable()
     {
         Clear();
@@ -31,12 +37,6 @@ public class LeaderboardManager : MonoBehaviour
 
         gameObjects.Clear();
 
-    }
-
-    private void OnEnable()
-    {
-
-        GetScores();
     }
 
     public async void GetScores()
