@@ -10,11 +10,11 @@ public class SOEditor : Editor
     {
         example = (ScriptableObjectWithIcon)target;
 
-        if (example == null || example.Spr == null)
+        if (example == null || example.MainSprite == null)
             return null;
 
         Texture2D tex = new Texture2D(width, height);
-        EditorUtility.CopySerialized(example.Spr.texture, tex);
+        EditorUtility.CopySerialized(example.MainSprite.texture, tex);
 
         return tex;
     }

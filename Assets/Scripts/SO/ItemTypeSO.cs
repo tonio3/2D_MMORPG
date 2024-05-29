@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 [Serializable]
+[CreateAssetMenu(fileName = "ItemType", menuName = "ScriptableObjects/ItemType")]
 public class ItemTypeSO : ScriptableObject
 {
  

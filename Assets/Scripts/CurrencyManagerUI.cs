@@ -2,33 +2,22 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class CurrencyManagerUI : MonoBehaviour
+public class CurrencyManagerUI : UIEventSubscriber
 {
     [SerializeField] private TextMeshProUGUI _goldText;
     [SerializeField] private TextMeshProUGUI _skillPointsText;
 
     [SerializeField] private PlayerCurrencySO _playerCurrency;
+ 
 
-    private void Awake()
+    protected override void InitialUIUpdate()
     {
-      
-    }
-
-    private void OnEnable()
-    {      
-        SubscribeToPlayerEvents();
-
-        //initial
         UpdateGoldText(_playerCurrency.Gold);
         UpdateSkillPointsText(_playerCurrency.SkillPoints);
     }
 
-    private void OnDisable()
-    {
-        UnsubscribeFromPlayerEvents();      
-    }
-
-    private void SubscribeToPlayerEvents()
+ 
+    protected override void SubscribeToPlayerEvents()
     {
 
         _playerCurrency.OnGoldChanged += UpdateGoldText;
@@ -36,7 +25,7 @@ public class CurrencyManagerUI : MonoBehaviour
     }
  
 
-    private void UnsubscribeFromPlayerEvents()
+    protected override void UnsubscribeFromPlayerEvents()
     {
         _playerCurrency.OnGoldChanged -= UpdateGoldText;
         _playerCurrency.OnSkillPointsChanged -= UpdateSkillPointsText;

@@ -21,7 +21,7 @@ public class GearItemSlot : ItemSlot
     public override void SetItem(ItemSO item)
     {
         _item = item;
-        _img.sprite = item.Spr;
+        _img.sprite = item.MainSprite;
         OnItemSetToGear?.Invoke(item);
     }
 
@@ -50,7 +50,7 @@ public class GearItemSlot : ItemSlot
             //From Gear slot to shop
             if ( newSlot.SlotType == ShopItemType)
             {
-                _currency.Sell();
+                _currency.Gold += Item.Price;
                 RemoveItem(Item);
                 ShopOffer.Instance.Initialize();
                 return;

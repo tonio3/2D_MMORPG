@@ -10,11 +10,11 @@ using UnityEngine.UI;
 
 public class OtherPlayerStatsUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI levelText;
-    [SerializeField] private Slider xpSlider;
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private Slider _xpSlider;
     [Space]
     [SerializeField] private TextMeshProUGUI _damage;
-    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private Image _playerImage;
     [SerializeField] private OtherCharacterDataSO _characterDataSO;
     [SerializeField] private OtherPlayerInvenotrySlot[] _playerInvenotrySlots;
@@ -24,11 +24,6 @@ public class OtherPlayerStatsUI : MonoBehaviour
 
     private void OnEnable()
     {
-        _characterDataSO.CharacterAttributes.OnLevelChanged += UpdateLevel;
-        _characterDataSO.CharacterAttributes.OnXPChanged += UpdateXP;
-        _characterDataSO.CharacterAttributes.OnDamageChanged += UpdateDamage;
-        _characterDataSO.CharacterAttributes.OnHealthChanged += UpdateHealth;
-        _characterDataSO.CharacterIdentity.OnCharacterSpriteChanged += UpdateCharacterSprite;
         UpdateUI();
     }
 
@@ -49,12 +44,14 @@ public class OtherPlayerStatsUI : MonoBehaviour
             _characterDataSO.CharacterAttributes.Strength = result.Strength;
             _characterDataSO.CharacterAttributes.Xp = result.Xp;
             _characterDataSO.CharacterIdentity.CharacterSpriteId = result.CharacterSpriteId;
+
+            _healthText.text = _characterDataSO.CharacterAttributes.Health + "";
+            _damage.text = _characterDataSO.CharacterAttributes.Damage + "";
+            _xpSlider.value = LevelCalculator.XpBar(_characterDataSO.CharacterAttributes.Xp);
+            _levelText.text = _characterDataSO.CharacterAttributes.Level + "";
+            _playerImage.sprite = _characterDataSO.CharacterIdentity.CharacterSprite;
         }
-
-        //level, xp
-        levelText.text = _characterDataSO.CharacterAttributes.Level + "";
-        xpSlider.value = LevelCalculator.XpBar(_characterDataSO.CharacterAttributes.Xp);
-
+ 
 
         // Gear
         var args2 = new Dictionary<string, object>() { { "playerId", _characterDataSO.CharacterIdentity.CharacterId } };
@@ -73,45 +70,12 @@ public class OtherPlayerStatsUI : MonoBehaviour
                 ItemType = (string)instanceData["ItemType"]
             };
 
-            _playerInvenotrySlots[i]._img.sprite = _itemDatabaseSO.GetItem(itemDTO.ItemType, itemDTO.ItemName).Spr;
+            _playerInvenotrySlots[i]._img.sprite = _itemDatabaseSO.GetItem(itemDTO.ItemType, itemDTO.ItemName).MainSprite;
         }
 
  
     }
-
-    private void OnDisable()
-    {
-        _characterDataSO.CharacterAttributes.OnLevelChanged -= UpdateLevel;
-        _characterDataSO.CharacterAttributes.OnXPChanged -= UpdateXP;
-        _characterDataSO.CharacterAttributes.OnDamageChanged -= UpdateDamage;
-        _characterDataSO.CharacterAttributes.OnHealthChanged -= UpdateHealth;
-        _characterDataSO.CharacterIdentity.OnCharacterSpriteChanged -= UpdateCharacterSprite;
-    }
-
-    private void UpdateLevel(int level)
-    {
-        levelText.text = level + "";
-    }
-
-    private void UpdateXP(int xp)
-    { 
-        xpSlider.value = LevelCalculator.XpBar(xp);
-    }
-
-    private void UpdateDamage(int damage)
-    {
-        _damage.text = damage + "";
-    }
-
-    private void UpdateHealth(int health)
-    {
-        healthText.text = health + "";
-    }
-
-    private void UpdateCharacterSprite(Sprite sprite)
-    {
-        _playerImage.sprite = sprite;
-    }
+  
 }
 
 public class ResultType

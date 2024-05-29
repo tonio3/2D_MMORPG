@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e021a5af1386984a9a615f69783c071, type: 3}
+  m_Name: FishDatabase
+  m_EditorClassIdentifier: 
+  _fish:
+  - {fileID: 11400000, guid: f2813dc50ab2d444580a4e0e04747843, type: 2}
+  - {fileID: 11400000, guid: b9e061aa07d2c784d8f956cdba6f2a20, type: 2}
+  - {fileID: 11400000, guid: e55c6e840303bb749a23db79afbe33b5, type: 2}
+  - {fileID: 11400000, guid: 4e495c415d4b49643955a13141d1eae5, type: 2}
+  - {fileID: 11400000, guid: d8ffa36f02ecda140a2f444c28e94235, type: 2}
+  _fishBosses:
+  - {fileID: 11400000, guid: 01afd43376e742d4897259dd8f6cc7c6, type: 2}
+  - {fileID: 11400000, guid: 452e78c0e73548a40b62840eb88539f2, type: 2}
+  - {fileID: 11400000, guid: f667794d4198e06428d4788ea236feaf, type: 2}
+  _fishingJunkItems:
+  - {fileID: 11400000, guid: 5ae634bba0f43474c943a6cbb20de59b, type: 2}
+  - {fileID: 11400000, guid: 770950e9296f9774aa8bd2707fe0e7cb, type: 2}
+  - {fileID: 11400000, guid: adef2c0b8546ade4b8895f4aec3e3891, type: 2}
+  - {fileID: 11400000, guid: e6c92f257b053fa448b8946a0d32eda5, type: 2}
+  - {fileID: 11400000, guid: 8783d917b37325d4e9a6bfb7d7bcdbc9, type: 2}
+  - {fileID: 11400000, guid: 9dc9b127c682c90408144285bb37a4e3, type: 2}
+  - {fileID: 11400000, guid: dca1e6d1e4f7fb14784493aef08ef183, type: 2}

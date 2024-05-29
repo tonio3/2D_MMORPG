@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89f5112ec7b05e4cb403edf14988063, type: 3}
+  m_Name: Cloud Save Collectibles SO
+  m_EditorClassIdentifier: 
+  _collectorsBookSO: {fileID: 11400000, guid: 26c7c0ac6e2d2ba419b2ee25ddfe6651, type: 2}

@@ -11,6 +11,7 @@ public class ItemDatabaseSO : ScriptableObject
 
     public ItemSO GetItem(string type, string id)
     {
+
         foreach (var itemArray in items)
         {
             if (itemArray.Type.name == type)

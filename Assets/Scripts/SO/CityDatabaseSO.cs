@@ -8,6 +8,6 @@ public class CityDatabaseSO : ScriptableObject
 
     public Sprite GetRandomCity()
     {
-        return cities[Random.Range(0, cities.Length)].CityViewSprite;
+        return cities[Random.Range(0, cities.Length)].MainSprite;
     }
 }

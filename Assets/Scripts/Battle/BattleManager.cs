@@ -28,7 +28,7 @@ public class BattleManager : MonoBehaviour
     
     [SerializeField] OtherCharacterDataSO _characterDataSO;
    
-    private EnemySO currentEnemy;
+   private EnemySO currentEnemy;
 
    [SerializeField] UnityEvent OnVictory;
    [SerializeField] UnityEvent OnLose;
@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour
           
         var e = new EnemySO();
         e.Level = _characterDataSO.CharacterAttributes.Level;
-        e.Spr = _characterDataSO.CharacterIdentity.CharacterSprite;
+        e.MainSprite = _characterDataSO.CharacterIdentity.CharacterSprite;
         e.BaseDamage = _characterDataSO.CharacterAttributes.Damage;
         e.BaseHealth = _characterDataSO.CharacterAttributes.Health;
         enemy.InitAsPVP(e);
@@ -79,7 +79,15 @@ public class BattleManager : MonoBehaviour
         SimulateBattle();
     }
 
+    public void SetupPVEGoOn()
+    {
+ 
+        currentEnemy = _enemyDatabaseSO.GetRandomEnemy();
+        currentEnemy.Level = _characterAttributesSO.Level;
+        enemy.Init(currentEnemy);
 
+        SimulateBattle();
+    }
 
     public async void SimulateBattle()
     {
@@ -142,8 +150,8 @@ public class BattleManager : MonoBehaviour
 
     public void WinBattle()
     {
-        _characterAttributesSO.Xp +=(currentEnemy.CalcXpRewardBasedOnLevel());
-        _playerCurrencySO.Gold +=(currentEnemy.CalcGoldRewardBasedOnLevel());
+        _characterAttributesSO.Xp +=(currentEnemy.BaseXpRevard);
+        _playerCurrencySO.Gold +=(currentEnemy.BaseGoldReward);
         OnVictory.Invoke();
     }
 

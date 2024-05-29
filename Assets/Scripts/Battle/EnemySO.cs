@@ -11,34 +11,17 @@ public class EnemySO : ScriptableObjectWithIcon
 
     // Atributy tøídy EnemySO
     [field: SerializeField] public Sprite Weapon { get; set; }
-    [field: SerializeField] public int Level { get; set; } = -1;
+    [field: SerializeField] public int Level { get; set; }
     [field: SerializeField] public int BaseHealth { get; set; }
     [field: SerializeField] public int BaseDamage { get; set; }
     [field: SerializeField] public int BaseGoldReward { get; set; }
     [field: SerializeField] public int BaseXpRevard { get; set; }
-
-    [SerializeField] EnemyLevelBasedStatsIncreaseSO _levelBasedStats;
-
-    public int CalcHealthBasedOnLevel()
+ 
+    [field: SerializeField] public RaritySO Rarity { get; set; }
+    public void Init(Sprite spr, RaritySO rarity)
     {
-        return BaseHealth + (_levelBasedStats.HealthPerLevel * Level);
+        MainSprite = spr;
+        Rarity = rarity;
     }
-
-    public int CalcDamageBasedOnLevel()
-    {
-        return BaseDamage + (_levelBasedStats.DamagePerLevel * Level);
-    }
-
-    public int CalcGoldRewardBasedOnLevel()
-    {
-        if (_levelBasedStats == null) return 0;
-        return BaseGoldReward + (_levelBasedStats.GoldRevardPerLevel * Level);
-    }
-
-    public int CalcXpRewardBasedOnLevel()
-    {
-        if (_levelBasedStats == null) return 0;
-        return BaseXpRevard + (_levelBasedStats.XpRevardPerLevel * Level);
-    }
-
+ 
 }

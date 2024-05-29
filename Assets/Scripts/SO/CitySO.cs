@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CitySO : ScriptableObject
+public class CitySO : ScriptableObjectWithIcon
 {
-
-    [field: SerializeField] public Sprite CityViewSprite { get; private set; }
-    [field: SerializeField] public ResourceTypeSO[] CityResources { get; private set; }
-
+ 
 }

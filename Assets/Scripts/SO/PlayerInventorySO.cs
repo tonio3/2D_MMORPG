@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Unity.Services.Economy;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [Serializable]
 public class PlayerInventorySO : ScriptableObject
 {
-
     [SerializeField] private InventoryItem[] _itemSlots = new InventoryItem[6];
 
     [SerializeField] private GearItem[] _gearSlots = new GearItem[8];
@@ -70,6 +70,21 @@ public class PlayerInventorySO : ScriptableObject
         InventoryItemSlot.OnItemRemovedFromInventory -= RemoveItemFromInventorySlot;
         GearItemSlot.OnItemRemovedFromGear -= RemoveItemFromGearSlot;
         GearItemSlot.OnItemSetToGear -= AddItemToGearSlot;
+    }
+
+    public void AddItemToInventorySlot(ItemSO item)
+    {
+        for (int i = 0; i < _itemSlots.Length; i++)
+        {
+            if (_itemSlots[i].Item == null) // find empty slot
+            {
+                _itemSlots[i].Item = item; // add item
+                Debug.Log($"Item {item.name} added to slot {i}");
+                return;
+            }
+        }
+
+        Debug.LogWarning("No empty slots available");
     }
 
     public void AddItemToInventorySlot(InventoryItem itemSlot)

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class ScriptableObjectWithIcon :ScriptableObject{
-    public Sprite Spr;
+  
+    [FormerlySerializedAs("Spr")] public Sprite MainSprite;
+
 }

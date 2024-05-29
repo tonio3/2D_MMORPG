@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc965d42f95ab44392aec97a62bcd67, type: 3}
+  m_Name: Fish bone
+  m_EditorClassIdentifier: 
+  Spr: {fileID: 21300000, guid: b11f06fa1d90c4447a4f6be7766dc600, type: 3}
+  <Id>k__BackingField: 4
+  Price: 3
+  Health: 0
+  Damage: 0
+  ItemType: {fileID: 11400000, guid: 4788e0fd396cf7f4f8c29833fb337e4b, type: 2}
+  <Rarity>k__BackingField: {fileID: 11400000, guid: 9cade128d088c2d4f999563b6bcdf7db, type: 2}

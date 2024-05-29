@@ -8,7 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Data;
 
-public class PlayerStatsUI : MonoBehaviour
+public class PlayerStatsUI : UIEventSubscriber
 {
 
     [SerializeField] private TextMeshProUGUI levelText;
@@ -33,16 +33,10 @@ public class PlayerStatsUI : MonoBehaviour
 
     [SerializeField] private InventoryItemSlot[] _inventoryItems;
     [SerializeField] private GearItemSlot[] _gearItems;
-
-    private void Awake()
+ 
+    protected override void InitialUIUpdate()
     {
-         
-    }
-
-    private void OnEnable()
-    {
-        SubscribeToPlayerEvents();
-
+ 
         UpdateLevelText(_characterAttributesSO.Level);
         UpdateDamageText(_characterAttributesSO.Damage);
         UpdateStrengthText(_characterAttributesSO.Strength);
@@ -53,6 +47,32 @@ public class PlayerStatsUI : MonoBehaviour
         UpdateCharacterInventory();
         UpdatePlayerName(_characterIdentity.CharacterName);
     }
+
+ 
+    protected override void SubscribeToPlayerEvents()
+    {
+        _characterAttributesSO.OnLevelChanged += UpdateLevelText;
+        _characterAttributesSO.OnXPChanged += UpdateXPSlider;
+        _characterAttributesSO.OnStrengthChanged += UpdateStrengthText;
+        _characterIdentity.OnCharacterNameChanged+= UpdatePlayerName;
+        _characterAttributesSO.OnDamageChanged += UpdateDamageText;
+        _characterAttributesSO.OnHealthChanged += UpdateHealthText;
+        _characterAttributesSO.OnEnduranceChanged += UpdateEnduranceText;
+        _characterIdentity.OnCharacterSpriteChanged += UpdateCharacterSprite;
+    }
+
+    protected override void UnsubscribeFromPlayerEvents()
+    {
+        _characterAttributesSO.OnLevelChanged -= UpdateLevelText;
+        _characterAttributesSO.OnXPChanged -= UpdateXPSlider;
+       _characterIdentity.OnCharacterNameChanged -= UpdatePlayerName;
+        _characterAttributesSO.OnStrengthChanged -= UpdateStrengthText;
+        _characterAttributesSO.OnDamageChanged -= UpdateDamageText;
+        _characterAttributesSO.OnHealthChanged -= UpdateHealthText;
+        _characterAttributesSO.OnEnduranceChanged -= UpdateEnduranceText;
+        _characterIdentity.OnCharacterSpriteChanged -= UpdateCharacterSprite;
+    }
+
 
     private void UpdateCharacterInventory()
     {
@@ -71,35 +91,6 @@ public class PlayerStatsUI : MonoBehaviour
             if (item.Item == null) { continue; };
             _gearItems[i].SetItem(item.Item);
         }
-    }
-
-    private void OnDisable()
-    {
-        UnsubscribeFromPlayerEvents();
-    }
-
-    private void SubscribeToPlayerEvents()
-    {
-        _characterAttributesSO.OnLevelChanged += UpdateLevelText;
-        _characterAttributesSO.OnXPChanged += UpdateXPSlider;
-        _characterAttributesSO.OnStrengthChanged += UpdateStrengthText;
-        _characterIdentity.OnCharacterNameChanged+= UpdatePlayerName;
-        _characterAttributesSO.OnDamageChanged += UpdateDamageText;
-        _characterAttributesSO.OnHealthChanged += UpdateHealthText;
-        _characterAttributesSO.OnEnduranceChanged += UpdateEnduranceText;
-        _characterIdentity.OnCharacterSpriteChanged += UpdateCharacterSprite;
-    }
-
-    private void UnsubscribeFromPlayerEvents()
-    {
-        _characterAttributesSO.OnLevelChanged -= UpdateLevelText;
-        _characterAttributesSO.OnXPChanged -= UpdateXPSlider;
-       _characterIdentity.OnCharacterNameChanged -= UpdatePlayerName;
-        _characterAttributesSO.OnStrengthChanged -= UpdateStrengthText;
-        _characterAttributesSO.OnDamageChanged -= UpdateDamageText;
-        _characterAttributesSO.OnHealthChanged -= UpdateHealthText;
-        _characterAttributesSO.OnEnduranceChanged -= UpdateEnduranceText;
-        _characterIdentity.OnCharacterSpriteChanged -= UpdateCharacterSprite;
     }
 
     private void UpdateCharacterSprite(Sprite spr)

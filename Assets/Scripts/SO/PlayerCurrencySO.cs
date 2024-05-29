@@ -67,9 +67,5 @@ public class PlayerCurrencySO : ScriptableObject
     {
         return _skillPoints >= ammount;
     }
-
-    public void Sell()
-    {
-       
-    }
-}
+ 
+ }

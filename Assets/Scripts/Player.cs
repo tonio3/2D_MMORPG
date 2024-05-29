@@ -13,10 +13,7 @@ using Unity.Services.Leaderboards;
 
 public class Player : MonoBehaviour
 {
-   
-    public bool bookUnlocked;
-
-    [SerializeField] RuneType RuneType;
+ 
     [SerializeField] PlayerCurrencySO _currency;
 
     private static Player _instance;
@@ -33,12 +30,7 @@ public class Player : MonoBehaviour
             Instance = value;
         }
     }
- 
- 
-    public void SetRune(RuneType rune)
-    {
-        RuneType = rune;
-    }
+  
 
     public Sprite GetWeaponImage()
     {/*

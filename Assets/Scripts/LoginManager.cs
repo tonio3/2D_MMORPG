@@ -1,3 +1,4 @@
+using Fishing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,14 +16,21 @@ public class LoginManager : MonoBehaviour
     [SerializeField] TMP_InputField _nameText;
     [SerializeField] TMP_InputField _passwordText;
     [SerializeField] UnityEvent OnSuccess;
-
+    [Space]
     [SerializeField] InitialPlayerData initialPlayerDataSO;
     [SerializeField] CharacterSpritesDatabaseSO _characterSpritesDatabaseSO;
     [SerializeField] CharacterAttributesSO _characterAttributesSO;
     [SerializeField] PlayerInventorySO _playerInventorySO;
     [SerializeField] CharacterIdentitySO _characterIdentitySO;
     [SerializeField] PlayerCurrencySO _playerCurrencySO;
- 
+    [SerializeField] CollectiblesSO _collectorsBookSO;
+    [Space]
+    [SerializeField] CloudSaveAttributesSO _cloudSaveAttributesSO;
+    [SerializeField] CloudSaveCurrencySO _cloudSaveCurrencySO;
+    [SerializeField] CloudSaveIdentitySO _cloudSaveIdentitySO;
+    [SerializeField] CloudSaveInventorySO _cloudSaveInventorySO;
+    [SerializeField] CloudSaveCollectiblesSO _cloudSaveCollectiblesSO;
+
     private readonly string userNamePepper = "dwaodoOO3";
     private readonly string passwordPepper = "Abc123!#abaDDc";
     private readonly string leaderboardId = "LEADERBOARD";
@@ -115,11 +123,12 @@ public class LoginManager : MonoBehaviour
     //register player data to cloud
     private async Task SaveInitialPlayerData()
     {
-   
+        // cloid init
+        CloudInit();
+
         //identity
         int spriteId = _characterSpritesDatabaseSO.GetRandomSpriteId();
         _characterIdentitySO.CharacterSpriteId = spriteId;
-
         _characterIdentitySO.CharacterName = AuthenticationService.Instance.PlayerName;
 
 
@@ -140,8 +149,7 @@ public class LoginManager : MonoBehaviour
         Task task1 = LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId,1);
         tasks.Add(task1);
 
-        //Inventory setup
-    
+        //Inventory setup   
         for (int i = 0; i < 6; i++)
         {
             AddInventoryItemOptions options = new AddInventoryItemOptions
@@ -177,17 +185,42 @@ public class LoginManager : MonoBehaviour
 
     public async Task LoadPlayerDataFromCloudAsync()
     {
- 
+
         //get identity
         var loadIdentityTask = _characterIdentitySO.LoadIdentityFromCloud();
         var loadCurrencyTask = _playerCurrencySO.LoadCurrencyFromCloud();
         var loadAttributesTask = _characterAttributesSO.LoadAttributesFromCloud();
         var loadInventoryTask = _playerInventorySO.LoadInventoryFromCloud();
+        var loadCollectiblesTask = _collectorsBookSO.LoadCollectiblesFromCloud();
 
         // Wait for all tasks to complete
-        await Task.WhenAll(loadIdentityTask, loadCurrencyTask, loadAttributesTask, loadInventoryTask);
- 
+        await Task.WhenAll(loadIdentityTask, loadCurrencyTask, loadAttributesTask, loadInventoryTask, loadCollectiblesTask);
+
+        //cloud init
+        CloudInit();
     }
+
+    private void CloudInit()
+    {
+        // init cloud
+        _cloudSaveAttributesSO.Initialize();
+        _cloudSaveCurrencySO.Initialize();
+        _cloudSaveIdentitySO.Initialize();
+        _cloudSaveInventorySO.Initialize();
+        _cloudSaveCollectiblesSO.Initialize();
+        Debug.Log("Cloud initialized");
+    }
+
+    private void OnDestroy()
+    {
+        _cloudSaveAttributesSO.DeInitialize();
+        _cloudSaveCurrencySO.DeInitialize();
+        _cloudSaveIdentitySO.DeInitialize();
+        _cloudSaveInventorySO.DeInitialize();
+        _cloudSaveCollectiblesSO.DeInitialize();
+        Debug.Log("Cloud Deinitialized");
+    }
+
 }
 
 [Serializable]

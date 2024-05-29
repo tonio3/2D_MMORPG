@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4f202209205c047ba4ad87b42498bc, type: 3}
   m_Name: City_2
   m_EditorClassIdentifier: 
+  Spr: {fileID: 21300000, guid: 3a6bbd5ee063bb342a893550ad7341f6, type: 3}
   <CityViewSprite>k__BackingField: {fileID: 21300000, guid: 3a6bbd5ee063bb342a893550ad7341f6, type: 3}
   <CityResources>k__BackingField:
   - {fileID: 11400000, guid: 941af0b755185d2479cc2b791fd90001, type: 2}

@@ -10,6 +10,7 @@ public class CharacterAttributesSO : ScriptableObject
 {
 
     [SerializeField] private CharacterScalingSO _characterScalingSO;
+ 
 
     private void OnDisable()
     {
@@ -131,6 +132,7 @@ public class CharacterAttributesSO : ScriptableObject
 
     public async Task LoadAttributesFromCloud()
     {
+
         var serverData = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "xp", "strength", "endurance", "characterSpriteId" });
 
         if (serverData.TryGetValue("xp", out var XPValue))
@@ -141,7 +143,7 @@ public class CharacterAttributesSO : ScriptableObject
 
         if (serverData.TryGetValue("endurance", out var enduranceValue))
             Endurance = enduranceValue.Value.GetAs<int>();
-   
+
     }
 
 }

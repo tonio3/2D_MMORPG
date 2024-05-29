@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fb1ece9ddf53b84fae545492ed02716, type: 3}
+  m_Script: {fileID: 11500000, guid: 74c5d3e9dce396b428129cc8c2d7a483, type: 3}
   m_Name: 15afb8235dcf01b414e2d67dd9b23ec8_0
   m_EditorClassIdentifier: 
-  Spr: {fileID: 21300000, guid: 877bb2f4cd7d57747818574a89851d40, type: 3}
+  MainSprite: {fileID: 21300000, guid: 877bb2f4cd7d57747818574a89851d40, type: 3}
   Price: 7
-  Health: 0
-  Damage: 0
   ItemType: {fileID: 11400000, guid: 4168fab7b7b899449aae0bace71ba034, type: 2}
+  <Rarity>k__BackingField: {fileID: 0}
+  Health: 3
+  Damage: 0

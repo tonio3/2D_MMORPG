@@ -9,7 +9,7 @@ public class ShopItemSlot : ItemSlot
     public override void SetItem(ItemSO item)
     {
         _item = item;
-        _img.sprite = item.Spr;
+        _img.sprite = item.MainSprite;
 
         var invItem = new InventoryItem();
         invItem.Item = item;

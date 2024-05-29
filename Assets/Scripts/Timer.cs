@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+
     [SerializeField] float maxTime;
     [SerializeField] float time;
 
